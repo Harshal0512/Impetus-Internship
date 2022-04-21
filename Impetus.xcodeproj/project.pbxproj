@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67428110EE400C86B6D /* ImpetusApp.swift */; };
+		F81FD67728110EE400C86B6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67628110EE400C86B6D /* ContentView.swift */; };
+		F81FD67928110EE500C86B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81FD67828110EE500C86B6D /* Assets.xcassets */; };
+		F81FD67C28110EE500C86B6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81FD67B28110EE500C86B6D /* Preview Assets.xcassets */; };
+		F81FD68628110EE500C86B6D /* ImpetusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD68528110EE500C86B6D /* ImpetusTests.swift */; };
+		F81FD69028110EE500C86B6D /* ImpetusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD68F28110EE500C86B6D /* ImpetusUITests.swift */; };
+		F81FD69228110EE500C86B6D /* ImpetusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD69128110EE500C86B6D /* ImpetusUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F81FD68228110EE500C86B6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81FD66928110EE400C86B6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81FD67028110EE400C86B6D;
+			remoteInfo = Impetus;
+		};
+		F81FD68C28110EE500C86B6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81FD66928110EE400C86B6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81FD67028110EE400C86B6D;
+			remoteInfo = Impetus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F81FD67128110EE400C86B6D /* Impetus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impetus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81FD67428110EE400C86B6D /* ImpetusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusApp.swift; sourceTree = "<group>"; };
+		F81FD67628110EE400C86B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F81FD67828110EE500C86B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F81FD67B28110EE500C86B6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F81FD68128110EE500C86B6D /* ImpetusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpetusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81FD68528110EE500C86B6D /* ImpetusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusTests.swift; sourceTree = "<group>"; };
+		F81FD68B28110EE500C86B6D /* ImpetusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpetusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81FD68F28110EE500C86B6D /* ImpetusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusUITests.swift; sourceTree = "<group>"; };
+		F81FD69128110EE500C86B6D /* ImpetusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F81FD66E28110EE400C86B6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD67E28110EE500C86B6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD68828110EE500C86B6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F81FD66828110EE400C86B6D = {
+			isa = PBXGroup;
+			children = (
+				F81FD67328110EE400C86B6D /* Impetus */,
+				F81FD68428110EE500C86B6D /* ImpetusTests */,
+				F81FD68E28110EE500C86B6D /* ImpetusUITests */,
+				F81FD67228110EE400C86B6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F81FD67228110EE400C86B6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81FD67128110EE400C86B6D /* Impetus.app */,
+				F81FD68128110EE500C86B6D /* ImpetusTests.xctest */,
+				F81FD68B28110EE500C86B6D /* ImpetusUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81FD67328110EE400C86B6D /* Impetus */ = {
+			isa = PBXGroup;
+			children = (
+				F81FD67428110EE400C86B6D /* ImpetusApp.swift */,
+				F81FD67628110EE400C86B6D /* ContentView.swift */,
+				F81FD67828110EE500C86B6D /* Assets.xcassets */,
+				F81FD67A28110EE500C86B6D /* Preview Content */,
+			);
+			path = Impetus;
+			sourceTree = "<group>";
+		};
+		F81FD67A28110EE500C86B6D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F81FD67B28110EE500C86B6D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F81FD68428110EE500C86B6D /* ImpetusTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81FD68528110EE500C86B6D /* ImpetusTests.swift */,
+			);
+			path = ImpetusTests;
+			sourceTree = "<group>";
+		};
+		F81FD68E28110EE500C86B6D /* ImpetusUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F81FD68F28110EE500C86B6D /* ImpetusUITests.swift */,
+				F81FD69128110EE500C86B6D /* ImpetusUITestsLaunchTests.swift */,
+			);
+			path = ImpetusUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F81FD67028110EE400C86B6D /* Impetus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81FD69528110EE500C86B6D /* Build configuration list for PBXNativeTarget "Impetus" */;
+			buildPhases = (
+				F81FD66D28110EE400C86B6D /* Sources */,
+				F81FD66E28110EE400C86B6D /* Frameworks */,
+				F81FD66F28110EE400C86B6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Impetus;
+			productName = Impetus;
+			productReference = F81FD67128110EE400C86B6D /* Impetus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F81FD68028110EE500C86B6D /* ImpetusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81FD69828110EE500C86B6D /* Build configuration list for PBXNativeTarget "ImpetusTests" */;
+			buildPhases = (
+				F81FD67D28110EE500C86B6D /* Sources */,
+				F81FD67E28110EE500C86B6D /* Frameworks */,
+				F81FD67F28110EE500C86B6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81FD68328110EE500C86B6D /* PBXTargetDependency */,
+			);
+			name = ImpetusTests;
+			productName = ImpetusTests;
+			productReference = F81FD68128110EE500C86B6D /* ImpetusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F81FD68A28110EE500C86B6D /* ImpetusUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81FD69B28110EE500C86B6D /* Build configuration list for PBXNativeTarget "ImpetusUITests" */;
+			buildPhases = (
+				F81FD68728110EE500C86B6D /* Sources */,
+				F81FD68828110EE500C86B6D /* Frameworks */,
+				F81FD68928110EE500C86B6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81FD68D28110EE500C86B6D /* PBXTargetDependency */,
+			);
+			name = ImpetusUITests;
+			productName = ImpetusUITests;
+			productReference = F81FD68B28110EE500C86B6D /* ImpetusUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F81FD66928110EE400C86B6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					F81FD67028110EE400C86B6D = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					F81FD68028110EE500C86B6D = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = F81FD67028110EE400C86B6D;
+					};
+					F81FD68A28110EE500C86B6D = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = F81FD67028110EE400C86B6D;
+					};
+				};
+			};
+			buildConfigurationList = F81FD66C28110EE400C86B6D /* Build configuration list for PBXProject "Impetus" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F81FD66828110EE400C86B6D;
+			productRefGroup = F81FD67228110EE400C86B6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F81FD67028110EE400C86B6D /* Impetus */,
+				F81FD68028110EE500C86B6D /* ImpetusTests */,
+				F81FD68A28110EE500C86B6D /* ImpetusUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F81FD66F28110EE400C86B6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81FD67C28110EE500C86B6D /* Preview Assets.xcassets in Resources */,
+				F81FD67928110EE500C86B6D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD67F28110EE500C86B6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD68928110EE500C86B6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F81FD66D28110EE400C86B6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81FD67728110EE400C86B6D /* ContentView.swift in Sources */,
+				F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD67D28110EE500C86B6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81FD68628110EE500C86B6D /* ImpetusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81FD68728110EE500C86B6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81FD69228110EE500C86B6D /* ImpetusUITestsLaunchTests.swift in Sources */,
+				F81FD69028110EE500C86B6D /* ImpetusUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F81FD68328110EE500C86B6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81FD67028110EE400C86B6D /* Impetus */;
+			targetProxy = F81FD68228110EE500C86B6D /* PBXContainerItemProxy */;
+		};
+		F81FD68D28110EE500C86B6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81FD67028110EE400C86B6D /* Impetus */;
+			targetProxy = F81FD68C28110EE500C86B6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F81FD69328110EE500C86B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F81FD69428110EE500C86B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81FD69628110EE500C86B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Impetus/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.Impetus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F81FD69728110EE500C86B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Impetus/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.Impetus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F81FD69928110EE500C86B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.ImpetusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Impetus.app/Impetus";
+			};
+			name = Debug;
+		};
+		F81FD69A28110EE500C86B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.ImpetusTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Impetus.app/Impetus";
+			};
+			name = Release;
+		};
+		F81FD69C28110EE500C86B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.ImpetusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Impetus;
+			};
+			name = Debug;
+		};
+		F81FD69D28110EE500C86B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.ImpetusUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Impetus;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F81FD66C28110EE400C86B6D /* Build configuration list for PBXProject "Impetus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81FD69328110EE500C86B6D /* Debug */,
+				F81FD69428110EE500C86B6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81FD69528110EE500C86B6D /* Build configuration list for PBXNativeTarget "Impetus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81FD69628110EE500C86B6D /* Debug */,
+				F81FD69728110EE500C86B6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81FD69828110EE500C86B6D /* Build configuration list for PBXNativeTarget "ImpetusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81FD69928110EE500C86B6D /* Debug */,
+				F81FD69A28110EE500C86B6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81FD69B28110EE500C86B6D /* Build configuration list for PBXNativeTarget "ImpetusUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81FD69C28110EE500C86B6D /* Debug */,
+				F81FD69D28110EE500C86B6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F81FD66928110EE400C86B6D /* Project object */;
+}
