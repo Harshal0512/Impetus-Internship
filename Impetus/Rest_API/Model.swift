@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Product: Hashable, Codable, Identifiable {
+    
     var id: Int
     var title: String
     var price: Double
@@ -30,3 +31,6 @@ struct Product: Hashable, Codable, Identifiable {
 //    var rate_count: Int
 //}
 ////https://fakestoreapi.com/products/1
+///
+
+

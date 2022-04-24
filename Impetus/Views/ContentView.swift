@@ -104,9 +104,7 @@ struct AppBarView: View {
     
     var body: some View {
         HStack{
-            Button(action: {
-                viewModel.logout()
-            }) {
+            Button(action: {}) {
                 Image("menu")
                     .padding()
                     .background(Color(.white))
@@ -228,14 +226,32 @@ struct ListView_Products: View {
             List(products) { product in
                 NavigationLink {
                     ProductDetail(product: product)
+//                        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+//                            .onEnded({ value in
+//                                if value.translation.width < 0 {
+//                                    // left
+//                                    Print("Left")
+//                                }
+//
+//                                if value.translation.width > 0 {
+//                                    // right
+//                                    Print("Right")
+//                                    ProductDetail(product: product)
+//                                }
+//                                if value.translation.height < 0 {
+//                                    // up
+//                                    Print("Up")
+//                                }
+//
+//                                if value.translation.height > 0 {
+//                                    // down
+//                                    Print("Down")
+//                                }
+//                            }))
                 } label: {
                     ProductRow(product: product)
                 }
             }
-            //            .ignoresSafeArea()
-            //            .onAppear(perform: {
-            //                UITableView.appearance().contentInset.top = -35})
-            //            .navigationTitle("All Products")
             .navigationBarHidden(true)
         }
     }
@@ -252,21 +268,34 @@ struct DashboardMainView: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack (alignment: .leading){
+                
+                HStack {
+                    Spacer()
+                    Button {
+                        viewModel.logout()
+                    } label: {
+                        Label("Logout", systemImage: "x.square.fill")
+                    }
+                    .padding(.horizontal)
+
+                }
+                .padding(.vertical, 10)
+                
                 AppBarView()
                 
                 TagLineView()
                     .padding(.leading)
                 
                 ListView_Products()
-//                    .onAppear(){
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                            self.viewModel.authenticatedToast = false
-//                        }
-//
-//                    }
-//                    .toast(isPresenting: $viewModel.authenticatedToast){
-//                        AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
-//                    }
+                    .onAppear(){
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            self.viewModel.authenticatedToast = false
+                        }
+
+                    }
+                    .toast(isPresenting: $viewModel.authenticatedToast){
+                        AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
+                    }
             }
         }
     }
@@ -276,7 +305,6 @@ struct DashboardMainView: View {
 struct LoginView: View {
     @State var email = ""
     @State var password = ""
-    @State private var alertWrongCredentials = false
     
     @EnvironmentObject var viewModel: AppViewModel
     
@@ -317,9 +345,69 @@ struct LoginView: View {
                 
                 Spacer()
                     .frame(height: 100)
+                
+                NavigationLink("Click here to Sign Up", destination: SignUpView())
+
             }
         }
         .navigationTitle("Sign In")
+        .padding()
+    }
+}
+
+struct SignUpView: View {
+    @State var email = ""
+    @State var password = ""
+    @State private var alertWrongInfo = false
+    
+    @EnvironmentObject var viewModel: AppViewModel
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                TextField("Email Address", text: $email)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding(15)
+                    .background(Color(.secondarySystemBackground))
+                    .padding(.bottom, 5)
+                
+                SecureField("Password", text: $password)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding(15)
+                    .background(Color(.secondarySystemBackground))
+                    .padding(.bottom, 15)
+                
+                Button(action: {
+                    guard !email.isEmpty, !password.isEmpty else {
+                        alertWrongInfo = true
+                        return
+                    }
+                    
+                    viewModel.signUp(email: email, password: password)
+                    
+                }, label: { Text("Sign Up")
+                        .frame(width: 200, height: 50)
+                        .background(Color.green)
+                        .cornerRadius(8)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 16, weight: .bold, design: .default))
+                })
+                .toast(isPresenting: $alertWrongInfo){
+                    AlertToast(type: .error(Color.black), title: "Incomplete", subTitle: "Please fill all Fields")
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        alertWrongInfo = false
+                    }
+                }
+                
+                Spacer()
+                    .frame(height: 100)
+            }
+        }
+        .navigationTitle("Sign Up")
         .padding()
     }
 }

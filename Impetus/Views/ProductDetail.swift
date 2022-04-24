@@ -13,14 +13,14 @@ struct ProductDetail: View {
     
     var body: some View {
         VStack {
-            ZStack {
+            ZStack {  // for background image
                 Color("Bg")
-                    .edgesIgnoringSafeArea(.all)
+                    .edgesIgnoringSafeArea(.all)  // stretching background to the 
                 ScrollView{
                     VStack {
-                        KFImage(URL(string: product.image)!)
+                        KFImage(URL(string: product.image)!)  // Kingfisher library for asynchronously caching images
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fit)  // to fit image on screen
 //                          .edgesIgnoringSafeArea(.top)
                     
                         VStack(alignment: .leading) {
@@ -34,7 +34,12 @@ struct ProductDetail: View {
                                 Spacer()
                             }
                             .padding(.bottom)
-                        
+                            
+                            Text("Price: $\(String(format: "%g", product.price))")  // remove trailing zeroes from price
+                                .fontWeight(.medium)
+                                .font(Font.system(size:20))
+                                .padding(.bottom,4)
+                            
                             Text("Description")
                                 .fontWeight(.medium)
                                 .padding(.top, 8)
@@ -47,31 +52,53 @@ struct ProductDetail: View {
                         .padding()
                         .padding(.top)
                         .background(Color.white)
-                    
-                        HStack{
-                            Text("$\(String(format: "%g", product.price))")
-                                .font(Font.system(size:30))
+                    }
+                }
+                VStack { // using zstack for displaying edit button on top of content
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {}, label: { // edit button
+                            Label("", systemImage: "pencil")
+                                .font(.system(.largeTitle))
+                                .frame(width: 60, height: 60)
                                 .foregroundColor(Color.white)
-                            
-                            Spacer()
-                            
-                            Button (action: {},  label: {
-                                Label("Edit Item", systemImage: "pencil")
-                                    .padding()
-                                    .padding(.horizontal)
-                                    .background(Color.white)
-                                    .cornerRadius(10.0)
-                            })
-                        }
+                                .padding(.bottom, 7)
+                                .padding(.leading, 7)
+                        })
+                        .background(Color.blue)
+                        .cornerRadius(100)
                         .padding()
-                        .background(Color("Primary"))
-                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+
+//                    HStack{
+//                        Text("$\(String(format: "%g", product.price))")
+//                            .font(Font.system(size:30))
+//                            .foregroundColor(Color.white)
+//
+//                        Spacer()
+//
+//                        Button (action: {},  label: {
+//                            Label("Edit Item", systemImage: "square.and.pencil")
+//                                .padding()
+//                                .padding(.horizontal)
+//                                .background(Color.white)
+//                                .cornerRadius(10.0)
+//                        })
+//                    }
+//                    .padding()
+//                    .background(Color("Primary"))
+//                    .frame(maxHeight: .infinity, alignment: .bottom)
                     }
                 }
             }
         }
     }
 }
+
 
 struct ProductDetail_Previews: PreviewProvider {
     static var previews: some View {
