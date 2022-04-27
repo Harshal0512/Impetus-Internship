@@ -199,7 +199,7 @@ struct ListView_Products: View {
             List {
                 ForEach(data) { product in
                     NavigationLink {
-                        ProductDetailView(product: product, productDeleted: self.$productDeleted)
+                        ProductDetailView(product: product, productDeleted: self.$productDeleted, data: $data)
                             .onDisappear() {
                                 if productDeleted {
                                     productDeleted = false

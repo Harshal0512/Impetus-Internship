@@ -17,6 +17,8 @@ struct ProductDetailView: View {
     @State var isEditing = false
     @State private var showingConfirmation = false
     
+    @Binding var data: [Product]
+    
     var body: some View {
         VStack {
             ZStack {  // for background image
@@ -121,7 +123,7 @@ struct ProductDetailView: View {
                                 isEditing = false
                                 presentationMode.wrappedValue.dismiss()
                             } content: {
-                                EditProductView(product: product)
+                                EditProductView(product: product, data: $data)
                             }
                         }
                     }

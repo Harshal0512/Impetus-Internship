@@ -14,6 +14,7 @@ struct AddProductView: View {
     @State var productPrice = ""
     @State var productCategory = ""
     @State var productDescription = ""
+    @State var productImage = ""
     
     @State private var alertWrongInfo = false
     @State private var productAdded = false
@@ -72,6 +73,22 @@ struct AddProductView: View {
                     }
                     
                     HStack {
+                        Text("Product Image")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .font(.callout)
+                            .frame(width: 130, height: 50, alignment: .leading)
+                        
+                        TextField("", text: $productImage)
+                            .font(.callout)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .padding(15)
+                            .background(Color(.secondarySystemBackground))
+                            .padding(.bottom, 5)
+                            .disabled(true)
+                    }
+                    
+                    HStack {
                         Text("Product Description")
                             .fixedSize(horizontal: false, vertical: true)
                             .font(.callout)
@@ -98,9 +115,9 @@ struct AddProductView: View {
 
                         let price = Double(productPrice)
                         
-                        let prod = Product(id: -1, title: productName, price: price!, description: productDescription, category: productCategory, image: "https://i.pravatar.cc")
+                        let prod = Product(id: -1, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
                         
-                        if addProduct(titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: "https://i.pravatar.cc", categoryParam: productCategory) {
+                        if addProduct(titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
                             productAdded = true
                             data.append(prod)
                             

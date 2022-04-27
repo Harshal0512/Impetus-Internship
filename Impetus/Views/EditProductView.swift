@@ -16,19 +16,24 @@ struct EditProductView: View {
     @State var productPrice = ""
     @State var productCategory = ""
     @State var productDescription = ""
+    @State var productImage = ""
     
     @State private var alertWrongInfo = false
     @State private var productUpdated = false
     
+    @Binding var data: [Product]
+    
     @Environment(\.presentationMode) var presentationMode
     
-    init(product: Product){
+    init(product: Product, data: Binding<[Product]>){
         self.product = product
+        _data = data
         _productId = State(initialValue: String(product.id))
         _productName = State(initialValue: product.title)
         _productPrice = State(initialValue: String(product.price))
         _productCategory = State(initialValue: product.category)
         _productDescription = State(initialValue: product.description)
+        _productImage = State(initialValue: product.image)
     }
     
     var body: some View {
@@ -97,6 +102,22 @@ struct EditProductView: View {
                     }
                     
                     HStack {
+                        Text("Product Image")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .font(.callout)
+                            .frame(width: 130, height: 50, alignment: .leading)
+                        
+                        TextField("", text: $productImage)
+                            .font(.callout)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .padding(15)
+                            .background(Color(.secondarySystemBackground))
+                            .padding(.bottom, 5)
+                            .disabled(true)
+                    }
+                    
+                    HStack {
                         Text("Product Description")
                             .fixedSize(horizontal: false, vertical: true)
                             .font(.callout)
@@ -113,7 +134,7 @@ struct EditProductView: View {
                     }
                     
                     Button(action: {
-                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty else {
+                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty else {
                             alertWrongInfo = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
@@ -121,11 +142,20 @@ struct EditProductView: View {
                             return
                         }
                         
+                        let oldProduct = product
+                        
                         let id = Int(productId)
                         let price = Double(productPrice)
                         
-                        if updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: "https://i.pravatar.cc", categoryParam: productCategory) {
+                        if updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
                             productUpdated = true
+                        
+                            let index = data.firstIndex(of: oldProduct)
+                            
+                            data.remove(at: index!)
+                            let newProduct = Product(id: id!, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
+
+                            data.insert(newProduct, at: index!)
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
