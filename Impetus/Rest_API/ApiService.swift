@@ -8,30 +8,7 @@
 import Foundation
 
 
-//var products: [Product] = load("products.json")
 var products: [Product] = getAllProducts()
-
-//func load<T: Decodable>(_ filename: String) -> T {
-//    let data: Data
-//
-//    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-//    else {
-//        fatalError("Couldn't find \(filename) in main bundle.")
-//    }
-//
-//    do {
-//        data = try Data(contentsOf: file)
-//    } catch {
-//        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-//    }
-//
-//    do {
-//        let decoder = JSONDecoder()
-//        return try decoder.decode(T.self, from: data)
-//    } catch {
-//        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-//    }
-//}
 
 func getAllProducts() -> [Product] {
     guard let url = URL(string: "https://fakestoreapi.com/products/")
@@ -136,11 +113,11 @@ func updateProduct(prodIdParam: Int,
                    descriptionParam: String,
                    imageParam: String,
                    categoryParam: String
-) {
+) -> Bool {
     let urlString = "https://fakestoreapi.com/products/\(prodIdParam)"
     guard let url = URL(string: urlString) else {
         print("Error: cannot create URL")
-        return
+        return false
     }
     
     // Add data to the model
@@ -149,7 +126,7 @@ func updateProduct(prodIdParam: Int,
     // Convert model to JSON data
     guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
         print("Error: Trying to convert model to JSON data")
-        return
+        return false
     }
     
     // Create the request
@@ -191,6 +168,7 @@ func updateProduct(prodIdParam: Int,
             return
         }
     }.resume()
+    return true
 }
 
 

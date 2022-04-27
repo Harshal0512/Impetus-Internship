@@ -104,12 +104,16 @@ struct AppBarView: View {
     
     var body: some View {
         HStack{
-            Button(action: {}) {
-                Image("menu")
-                    .padding()
-                    .background(Color(.white))
-                    .cornerRadius(10.0)
-            }
+//            Button(action: {}) {
+//                Image("menu")
+//                    .padding()
+//                    .background(Color(.white))
+//                    .cornerRadius(10.0)
+//            }
+            TagLineView()
+                .padding(.leading)
+                .padding(.bottom)
+            
             Spacer()
             
             Button(action: {}) {
@@ -119,7 +123,7 @@ struct AppBarView: View {
                     .cornerRadius(10.0)
             }
         }
-        .padding(.horizontal)
+        .padding(.trailing)
     }
 }
 
@@ -134,78 +138,41 @@ struct TagLineView: View {
     }
 }
 
-struct SearchView: View {
-    @State private var search: String = ""
-    var body: some View {
-        HStack {
-            HStack {
-                Image("Search")
-                    .padding(.trailing, 8)
-                TextField("Search for Products", text: $search)
-            }
-            .padding()
-            .background(Color.white)
-            .cornerRadius(10.0)
-            .padding(.horizontal)
-        }
-    }
-}
+//struct SearchView: View {
+//    @State private var search: String = ""
+//    var body: some View {
+//        HStack {
+//            HStack {
+//                Image("Search")
+//                    .padding(.trailing, 8)
+//                TextField("Search for Products", text: $search)
+//            }
+//            .padding()
+//            .background(Color.white)
+//            .cornerRadius(10.0)
+//            .padding(.horizontal)
+//        }
+//    }
+//}
 
-struct ThreeButtonView: View {
+struct AddButton: View {
+    @State private var showView = false
+    
     var body: some View {
         HStack(spacing: 0.0) {
-            Button(action: {}) {
-                VStack {
-                    Image("Edit_icon")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    
-                    Text("Edit Records")
-                        .font(.custom("PlayFairDisplay-Regular", size: 15))
-                        .foregroundColor(Color("Primary"))
-                }
-                .frame(width: 110, height: 70)
-                .background(Color(.white))
-                .cornerRadius(15)
-            }
-            .frame(width: 110, height: 50)
-            
             Spacer()
             
-            Button(action: {}) {
-                VStack {
-                    Image("Edit_icon")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    
-                    Text("Edit Records")
-                        .font(.custom("PlayFairDisplay-Regular", size: 15))
-                        .foregroundColor(Color("Primary"))
+            Button(action: {
+                showView.toggle()
+                NavigationLink(isActive: $showView) {
+                    //EditProductView()
+                } label: {
+                    EmptyView()
                 }
-                .frame(width: 110, height: 70)
-                .background(Color(.white))
-                .cornerRadius(15)
+
+            }) {
+                    Label("Add Product", systemImage: "plus.app.fill")
             }
-            .frame(width: 110, height: 50)
-            
-            Spacer()
-            
-            Button(action: {}) {
-                VStack {
-                    Image("Edit_icon")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    
-                    Text("Edit Records")
-                        .font(.custom("PlayFairDisplay-Regular", size: 15))
-                        .foregroundColor(Color("Primary"))
-                }
-                .frame(width: 110, height: 70)
-                .background(Color(.white))
-                .cornerRadius(15)
-            }
-            .frame(width: 110.0, height: 50)
-            
         }
         .padding()
         .frame(alignment: .center)
@@ -227,7 +194,7 @@ struct ListView_Products: View {
         NavigationView {
             List(products) { product in
                 NavigationLink {
-                    ProductDetail(product: product, productDeleted: self.$productDeleted)
+                    ProductDetailView(product: product, productDeleted: self.$productDeleted)
                         .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
                             .onEnded({ value in
                                 if value.translation.width < 0 {
@@ -285,23 +252,26 @@ struct DashboardMainView: View {
                     .padding(.horizontal)
 
                 }
-                .padding(.vertical, 10)
+                .padding(.vertical, 15)
                 
-                AppBarView()
-                
-                TagLineView()
-                    .padding(.leading)
-                
-                ListView_Products()
-                    .onAppear(){
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            self.viewModel.authenticatedToast = false
+                ScrollView{
+                    AppBarView()
+                        .padding(.bottom, 15)
+                    
+                    AddButton()
+                    ListView_Products()
+                        .frame(height: 540)
+                        .onAppear(){
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                self.viewModel.authenticatedToast = false
+                            }
+                            
                         }
-
-                    }
-                    .toast(isPresenting: $viewModel.authenticatedToast){
-                        AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
-                    }
+                        .toast(isPresenting: $viewModel.authenticatedToast){
+                            AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
+                        }
+                }
+                
             }
         }
     }

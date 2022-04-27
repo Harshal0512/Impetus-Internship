@@ -9,11 +9,12 @@ import SwiftUI
 import Kingfisher
 import AlertToast
 
-struct ProductDetail: View {
+struct ProductDetailView: View {
     var product: Product
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var productDeleted: Bool
+    @State var isEditing = false
     @State private var showingConfirmation = false
     
     var body: some View {
@@ -26,6 +27,7 @@ struct ProductDetail: View {
                         KFImage(URL(string: product.image)!)  // Kingfisher library for asynchronously caching images
                             .resizable()
                             .aspectRatio(contentMode: .fit)  // to fit image on screen
+                            .offset(y: -50)
                     
                         VStack(alignment: .leading) {
                             Text(product.title)
@@ -52,12 +54,12 @@ struct ProductDetail: View {
                             Text(product.description)
                                 .lineSpacing(8.0)
                                 .opacity(0.6)
+                                .padding(.bottom)
                         }
-                        .padding()
-                        .padding(.top)
-                        .background(Color.white)
+                        .padding(.horizontal)
                     }
                 }
+                .background(Color.white)
                 
                 VStack { // using zstack for displaying edit button on top of content
                     Spacer()
@@ -99,7 +101,9 @@ struct ProductDetail: View {
                             }
                             
                             
-                            Button(action: {}, label: { // edit button
+                            Button(action: {
+                                isEditing = true
+                            }, label: { // edit button
                                 Label("", systemImage: "pencil")
                                     .font(.system(.largeTitle))
                                     .frame(width: 60, height: 60)
@@ -114,6 +118,13 @@ struct ProductDetail: View {
                                     radius: 3,
                                     x: 3,
                                     y: 3)
+                            .sheet(isPresented: $isEditing) {
+                                isEditing = false
+                                presentationMode.wrappedValue.dismiss()
+                            } content: {
+                                EditProductView(product: product)
+                            }
+
                         }
                     }
                 }
