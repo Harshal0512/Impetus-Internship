@@ -221,23 +221,27 @@ extension View {
 }
 
 struct ListView_Products: View {
+    @State public var productDeleted = false
+    
     var body: some View {
         NavigationView {
             List(products) { product in
                 NavigationLink {
-                    ProductDetail(product: product)
-//                        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-//                            .onEnded({ value in
-//                                if value.translation.width < 0 {
-//                                    // left
-//                                    Print("Left")
-//                                }
-//
-//                                if value.translation.width > 0 {
-//                                    // right
-//                                    Print("Right")
-//                                    ProductDetail(product: product)
-//                                }
+                    ProductDetail(product: product, productDeleted: self.$productDeleted)
+                        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+                            .onEnded({ value in
+                                if value.translation.width < 0 {
+                                    // left
+                                }
+
+                                if value.translation.width > 0 {
+                                    // right
+                                    //Print("Right")
+                                    //ProductDetail(product: products[product.id-1])
+                                    //addProduct(titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
+                                    //updateProduct(prodIdParam: 7, titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
+                                    //deleteProduct(prodIdParam: 7)
+                                }
 //                                if value.translation.height < 0 {
 //                                    // up
 //                                    Print("Up")
@@ -247,16 +251,18 @@ struct ListView_Products: View {
 //                                    // down
 //                                    Print("Down")
 //                                }
-//                            }))
+                            }))
                 } label: {
                     ProductRow(product: product)
                 }
             }
             .navigationBarHidden(true)
+            .toast(isPresenting: $productDeleted){
+                AlertToast(type: .error(Color.black), title: "Product Deleted", subTitle: "")
+            }
         }
     }
 }
-
 
 struct DashboardMainView: View {
     

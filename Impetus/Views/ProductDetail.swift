@@ -7,9 +7,14 @@
 
 import SwiftUI
 import Kingfisher
+import AlertToast
 
 struct ProductDetail: View {
     var product: Product
+    
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var productDeleted: Bool
+    @State private var showingConfirmation = false
     
     var body: some View {
         VStack {
@@ -21,7 +26,6 @@ struct ProductDetail: View {
                         KFImage(URL(string: product.image)!)  // Kingfisher library for asynchronously caching images
                             .resizable()
                             .aspectRatio(contentMode: .fit)  // to fit image on screen
-//                          .edgesIgnoringSafeArea(.top)
                     
                         VStack(alignment: .leading) {
                             Text(product.title)
@@ -54,54 +58,66 @@ struct ProductDetail: View {
                         .background(Color.white)
                     }
                 }
+                
                 VStack { // using zstack for displaying edit button on top of content
                     Spacer()
                     HStack {
                         Spacer()
-                        Button(action: {}, label: { // edit button
-                            Label("", systemImage: "pencil")
-                                .font(.system(.largeTitle))
-                                .frame(width: 60, height: 60)
-                                .foregroundColor(Color.white)
-                                .padding(.bottom, 7)
-                                .padding(.leading, 7)
-                        })
-                        .background(Color.blue)
-                        .cornerRadius(100)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
+                        ZStack{
+                            Button(action: {
+                                showingConfirmation = true
+                            }, label: { // delete button
+                                Label("", systemImage: "trash")
+                                    .font(.system(.largeTitle))
+                                    .frame(width: 55, height: 55)
+                                    .foregroundColor(Color.white)
+                                    .padding(.bottom, 7)
+                                    .padding(.leading, 7)
+                            })
+                            .background(Color.blue)
+                            .cornerRadius(100)
+                            .padding()
+                            .shadow(color: Color.black.opacity(0.3),
+                                    radius: 3,
+                                    x: 3,
+                                    y: 3)
+                            .offset(y: -78)
+                            .confirmationDialog("Delete Item", isPresented: $showingConfirmation) {
+                                Button("Delete", role: .destructive) {
+                                    DispatchQueue.main.async {
+                                        
+                                        if  deleteProduct(prodIdParam: product.id) {
+                                            productDeleted = true
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }
+                                }
 
-//                    HStack{
-//                        Text("$\(String(format: "%g", product.price))")
-//                            .font(Font.system(size:30))
-//                            .foregroundColor(Color.white)
-//
-//                        Spacer()
-//
-//                        Button (action: {},  label: {
-//                            Label("Edit Item", systemImage: "square.and.pencil")
-//                                .padding()
-//                                .padding(.horizontal)
-//                                .background(Color.white)
-//                                .cornerRadius(10.0)
-//                        })
-//                    }
-//                    .padding()
-//                    .background(Color("Primary"))
-//                    .frame(maxHeight: .infinity, alignment: .bottom)
+                                Button("Cancel", role: .cancel) { }
+                            } message: {
+                                Text("Are you sure you want to delete this item? This action cannot be undone.")
+                            }
+                            
+                            
+                            Button(action: {}, label: { // edit button
+                                Label("", systemImage: "pencil")
+                                    .font(.system(.largeTitle))
+                                    .frame(width: 60, height: 60)
+                                    .foregroundColor(Color.white)
+                                    .padding(.bottom, 7)
+                                    .padding(.leading, 7)
+                            })
+                            .background(Color.blue)
+                            .cornerRadius(100)
+                            .padding()
+                            .shadow(color: Color.black.opacity(0.3),
+                                    radius: 3,
+                                    x: 3,
+                                    y: 3)
+                        }
                     }
                 }
             }
         }
-    }
-}
-
-
-struct ProductDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetail(product: products[0])
     }
 }

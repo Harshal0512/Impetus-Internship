@@ -17,20 +17,20 @@ struct ProductRow: View {
     
     var body: some View {
         HStack {
-            CheckBoxView(checked: $checked, trimVal: $trimVal, prodID: $prodID)
-                .onTapGesture {
-                    if !self.checked {
-                        withAnimation(Animation.easeInOut(duration: 0.5)) {
-                            self.trimVal = 1
-                            self.checked.toggle()
-                        }
-                    } else {
-                        withAnimation {
-                            self.trimVal = 0
-                            self.checked.toggle()
-                        }
-                    }
-                }
+//            CheckBoxView(checked: $checked, trimVal: $trimVal, prodID: $prodID)
+//                .onTapGesture {
+//                    if !self.checked {
+//                        withAnimation(Animation.easeInOut(duration: 0.5)) {
+//                            self.trimVal = 1
+//                            self.checked.toggle()
+//                        }
+//                    } else {
+//                        withAnimation {
+//                            self.trimVal = 0
+//                            self.checked.toggle()
+//                        }
+//                    }
+//                }
             KFImage(URL(string: product.image)!)
                 .resizable()
             .frame(width: 50, height: 50)

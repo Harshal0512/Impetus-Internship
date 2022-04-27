@@ -18,6 +18,14 @@ struct Product: Hashable, Codable, Identifiable {
     var image: String
 }
 
+struct outboundProduct: Codable {
+    let title: String
+    let price: Double
+    let description: String
+    let image: String
+    let category: String
+}
+
 //
 //struct Product: Codable, Identifiable {
 //    let id = UUID()
