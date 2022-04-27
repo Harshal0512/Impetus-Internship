@@ -47,10 +47,10 @@ func addProduct(titleParam: String,
                 descriptionParam: String,
                 imageParam: String,
                 categoryParam: String
-) {
+) -> Bool {
     guard let url = URL(string: "https://fakestoreapi.com/products/") else {
         print("Error: cannot create URL")
-        return
+        return false
     }
     
     // Add data to the model
@@ -59,7 +59,7 @@ func addProduct(titleParam: String,
     // Convert model to JSON data
     guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
         print("Error: Trying to convert model to JSON data")
-        return
+        return false
     }
     
     // Create the url request
@@ -103,6 +103,7 @@ func addProduct(titleParam: String,
             return
         }
     }.resume()
+    return true
 }
 
 

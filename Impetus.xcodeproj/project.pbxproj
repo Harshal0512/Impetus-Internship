@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805847E2813BB8F00982065 /* CheckBoxView.swift */; };
 		F81B53652819103B00078DB5 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53642819103B00078DB5 /* EditProductView.swift */; };
+		F81B53672819982A00078DB5 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53662819982A00078DB5 /* AddProductView.swift */; };
 		F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67428110EE400C86B6D /* ImpetusApp.swift */; };
 		F81FD67728110EE400C86B6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67628110EE400C86B6D /* ContentView.swift */; };
 		F81FD67C28110EE500C86B6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81FD67B28110EE500C86B6D /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		F805847E2813BB8F00982065 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		F81B53642819103B00078DB5 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
+		F81B53662819982A00078DB5 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		F81FD67128110EE400C86B6D /* Impetus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impetus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81FD67428110EE400C86B6D /* ImpetusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusApp.swift; sourceTree = "<group>"; };
 		F81FD67628110EE400C86B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				F81FD6A428110FE900C86B6D /* ProductDetailView.swift */,
 				F805847E2813BB8F00982065 /* CheckBoxView.swift */,
 				F81B53642819103B00078DB5 /* EditProductView.swift */,
+				F81B53662819982A00078DB5 /* AddProductView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */,
 				F81FD6AD2811108100C86B6D /* Model.swift in Sources */,
 				F81B53652819103B00078DB5 /* EditProductView.swift in Sources */,
+				F81B53672819982A00078DB5 /* AddProductView.swift in Sources */,
 				F81FD67728110EE400C86B6D /* ContentView.swift in Sources */,
 				F81FD6AE2811108100C86B6D /* ApiService.swift in Sources */,
 				F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */,

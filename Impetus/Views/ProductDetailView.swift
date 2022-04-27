@@ -124,7 +124,6 @@ struct ProductDetailView: View {
                             } content: {
                                 EditProductView(product: product)
                             }
-
                         }
                     }
                 }

@@ -71,8 +71,6 @@ class AppViewModel: ObservableObject {
 
 
 struct ContentView: View {
-    
-    //    @State var products = [Product]()
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
@@ -156,26 +154,27 @@ struct TagLineView: View {
 //}
 
 struct AddButton: View {
-    @State private var showView = false
+    @State private var showAddProductView = false
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         HStack(spacing: 0.0) {
             Spacer()
             
             Button(action: {
-                showView.toggle()
-                NavigationLink(isActive: $showView) {
-                    //EditProductView()
-                } label: {
-                    EmptyView()
-                }
-
+                showAddProductView.toggle()
             }) {
                     Label("Add Product", systemImage: "plus.app.fill")
             }
         }
         .padding()
         .frame(alignment: .center)
+        .sheet(isPresented: $showAddProductView) {
+            showAddProductView = false
+            presentationMode.wrappedValue.dismiss()
+        } content: {
+            AddProductView()
+        }
     }
 }
 
