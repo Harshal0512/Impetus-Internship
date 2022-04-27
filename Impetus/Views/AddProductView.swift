@@ -18,6 +18,8 @@ struct AddProductView: View {
     @State private var alertWrongInfo = false
     @State private var productAdded = false
     
+    @Binding var data: [Product]
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -96,8 +98,12 @@ struct AddProductView: View {
 
                         let price = Double(productPrice)
                         
+                        let prod = Product(id: -1, title: productName, price: price!, description: productDescription, category: productCategory, image: "https://i.pravatar.cc")
+                        
                         if addProduct(titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: "https://i.pravatar.cc", categoryParam: productCategory) {
                             productAdded = true
+                            data.append(prod)
+                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
                                 productAdded = false

@@ -22,7 +22,6 @@ struct EditProductView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    
     init(product: Product){
         self.product = product
         _productId = State(initialValue: String(product.id))

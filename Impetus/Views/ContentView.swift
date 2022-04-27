@@ -157,6 +157,8 @@ struct AddButton: View {
     @State private var showAddProductView = false
     @Environment(\.presentationMode) var presentationMode
     
+    @Binding var data: [Product]
+    
     var body: some View {
         HStack(spacing: 0.0) {
             Spacer()
@@ -173,7 +175,7 @@ struct AddButton: View {
             showAddProductView = false
             presentationMode.wrappedValue.dismiss()
         } content: {
-            AddProductView()
+            AddProductView(data: $data)
         }
     }
 }
@@ -190,7 +192,7 @@ struct ListView_Products: View {
     @State public var productDeleted = false
     @Environment(\.presentationMode) var presentationMode
     
-    @State var data = products
+    @Binding var data: [Product]
     
     var body: some View {
         NavigationView {
@@ -231,6 +233,8 @@ struct DashboardMainView: View {
     
     @EnvironmentObject var viewModel: AppViewModel
     
+    @State var data = products
+    
     var body: some View {
         ZStack{
             Color("Bg")
@@ -254,8 +258,8 @@ struct DashboardMainView: View {
                     AppBarView()
                         .padding(.bottom, 15)
                     
-                    AddButton()
-                    ListView_Products()
+                    AddButton(data: $data)
+                    ListView_Products(data: $data)
                         .frame(height: 540)
                         .onAppear(){
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
