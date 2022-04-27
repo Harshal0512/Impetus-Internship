@@ -188,38 +188,35 @@ extension View {
 
 struct ListView_Products: View {
     @State public var productDeleted = false
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var data = products
     
     var body: some View {
         NavigationView {
-            List(products) { product in
-                NavigationLink {
-                    ProductDetailView(product: product, productDeleted: self.$productDeleted)
-                        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-                            .onEnded({ value in
-                                if value.translation.width < 0 {
-                                    // left
+            List {
+                ForEach(data) { product in
+                    NavigationLink {
+                        ProductDetailView(product: product, productDeleted: self.$productDeleted)
+                            .onDisappear() {
+                                if productDeleted {
+                                    productDeleted = false
+                                    data.remove(at: data.firstIndex(of: product)!)
                                 }
-
-                                if value.translation.width > 0 {
-                                    // right
-                                    //Print("Right")
-                                    //ProductDetail(product: products[product.id-1])
-                                    //addProduct(titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-                                    //updateProduct(prodIdParam: 7, titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-                                    //deleteProduct(prodIdParam: 7)
-                                }
-//                                if value.translation.height < 0 {
-//                                    // up
-//                                    Print("Up")
-//                                }
-//
-//                                if value.translation.height > 0 {
-//                                    // down
-//                                    Print("Down")
-//                                }
-                            }))
-                } label: {
-                    ProductRow(product: product)
+                            }
+                    } label: {
+                        ProductRow(product: product)
+                    }
+                }
+                .onDelete { index in
+                    index.forEach { i in
+                        DispatchQueue.main.async {
+                            if deleteProduct(prodIdParam: data[i].id) {
+                                data.remove(at: i)
+                            }
+                        }
+                    }
+                    
                 }
             }
             .navigationBarHidden(true)
