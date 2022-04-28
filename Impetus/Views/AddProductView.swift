@@ -85,7 +85,6 @@ struct AddProductView: View {
                             .padding(15)
                             .background(Color(.secondarySystemBackground))
                             .padding(.bottom, 5)
-                            .disabled(true)
                     }
                     
                     HStack {
@@ -105,7 +104,7 @@ struct AddProductView: View {
                     }
                     
                     Button(action: {
-                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty else {
+                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty else {
                             alertWrongInfo = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false

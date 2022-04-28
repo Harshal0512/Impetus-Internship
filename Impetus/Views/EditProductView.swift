@@ -114,14 +114,13 @@ struct EditProductView: View {
                             .padding(15)
                             .background(Color(.secondarySystemBackground))
                             .padding(.bottom, 5)
-                            .disabled(true)
                     }
                     
                     HStack {
                         Text("Product Description")
                             .fixedSize(horizontal: false, vertical: true)
                             .font(.callout)
-                            .frame(width: 113, height: 50, alignment: .leading)
+                            .frame(width: 130, height: 50, alignment: .leading)
                         
                         TextEditor(text: $productDescription)
                             .font(.callout)
