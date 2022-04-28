@@ -269,13 +269,14 @@ struct ListView_Products: View {
                                 Button("Delete", role: .destructive) {
                                     DispatchQueue.main.async {
                                         for i in deleteMultiple.indices {
-                                            let index = data.firstIndex(of: data[i])
-                                            if  deleteProduct(prodIdParam: data[i].id) {
+                                            let index = data.firstIndex(of: deleteMultiple[i])
+                                            print(index)
+                                            if  deleteProduct(prodIdParam: data[index!].id) {
                                                 data.remove(at: index!)
                                             }
                                         }
-                                        multipleProductsDeleted = true
                                     }
+                                    multipleProductsDeleted = true
                                 }
                                 
                                 Button("Cancel", role: .cancel) { }
