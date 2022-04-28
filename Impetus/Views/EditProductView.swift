@@ -133,7 +133,7 @@ struct EditProductView: View {
                     }
                     
                     Button(action: {
-                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty else {
+                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty, Double(productPrice) != nil else {
                             alertWrongInfo = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false

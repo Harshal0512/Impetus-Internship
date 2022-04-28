@@ -270,7 +270,6 @@ struct ListView_Products: View {
                                     DispatchQueue.main.async {
                                         for i in deleteMultiple.indices {
                                             let index = data.firstIndex(of: deleteMultiple[i])
-                                            print(index)
                                             if  deleteProduct(prodIdParam: data[index!].id) {
                                                 data.remove(at: index!)
                                             }
