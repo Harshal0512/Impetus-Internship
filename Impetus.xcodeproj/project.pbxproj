@@ -10,6 +10,7 @@
 		F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805847E2813BB8F00982065 /* CheckBoxView.swift */; };
 		F81B53652819103B00078DB5 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53642819103B00078DB5 /* EditProductView.swift */; };
 		F81B53672819982A00078DB5 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53662819982A00078DB5 /* AddProductView.swift */; };
+		F81B5369281A5C0100078DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81B5368281A5C0100078DB5 /* Assets.xcassets */; };
 		F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67428110EE400C86B6D /* ImpetusApp.swift */; };
 		F81FD67728110EE400C86B6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD67628110EE400C86B6D /* ContentView.swift */; };
 		F81FD67C28110EE500C86B6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81FD67B28110EE500C86B6D /* Preview Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		F81FD6A528110FE900C86B6D /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6A428110FE900C86B6D /* ProductDetailView.swift */; };
 		F81FD6AD2811108100C86B6D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AB2811108100C86B6D /* Model.swift */; };
 		F81FD6AE2811108100C86B6D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AC2811108100C86B6D /* ApiService.swift */; };
-		F81FD6B1281110D600C86B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81FD6B0281110D600C86B6D /* Assets.xcassets */; };
 		F81FD6B3281110F400C86B6D /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F81FD6B2281110F400C86B6D /* products.json */; };
 		F8DA13082811144600858706 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DA13062811144600858706 /* PlayfairDisplay-Bold.ttf */; };
 		F8DA13092811144600858706 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DA13072811144600858706 /* PlayfairDisplay-Regular.ttf */; };
@@ -52,6 +52,7 @@
 		F805847E2813BB8F00982065 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		F81B53642819103B00078DB5 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
 		F81B53662819982A00078DB5 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		F81B5368281A5C0100078DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81FD67128110EE400C86B6D /* Impetus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impetus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81FD67428110EE400C86B6D /* ImpetusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpetusApp.swift; sourceTree = "<group>"; };
 		F81FD67628110EE400C86B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		F81FD6A428110FE900C86B6D /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F81FD6AB2811108100C86B6D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F81FD6AC2811108100C86B6D /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		F81FD6B0281110D600C86B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../Impetus Internship App/Impetus_Internship_App-main/Impetus_Internship_App/Assets.xcassets"; sourceTree = "<group>"; };
 		F81FD6B2281110F400C86B6D /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		F81FD6B62811130900C86B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8DA13062811144600858706 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				F81FD6AA2811105800C86B6D /* Rest_API */,
 				F81FD6A128110F8A00C86B6D /* Views */,
 				F81FD67428110EE400C86B6D /* ImpetusApp.swift */,
-				F81FD6B0281110D600C86B6D /* Assets.xcassets */,
+				F81B5368281A5C0100078DB5 /* Assets.xcassets */,
 				F8DA13052811142800858706 /* Fonts */,
 				F81FD67A28110EE500C86B6D /* Preview Content */,
 				F81FD6B62811130900C86B6D /* Info.plist */,
@@ -321,7 +321,7 @@
 				F8DA13082811144600858706 /* PlayfairDisplay-Bold.ttf in Resources */,
 				F81FD6B3281110F400C86B6D /* products.json in Resources */,
 				F81FD67C28110EE500C86B6D /* Preview Assets.xcassets in Resources */,
-				F81FD6B1281110D600C86B6D /* Assets.xcassets in Resources */,
+				F81B5369281A5C0100078DB5 /* Assets.xcassets in Resources */,
 				F8DA130B28112F9500858706 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
