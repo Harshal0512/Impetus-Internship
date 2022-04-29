@@ -19,6 +19,10 @@ struct AppBarView: View {
             
             Spacer()
             
+            Divider()
+            
+            Spacer()
+            
             Button(action: {}) {
                 Image(uiImage: #imageLiteral(resourceName: "Profile.png"))
                     .resizable()

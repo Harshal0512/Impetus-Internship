@@ -52,6 +52,8 @@ struct LoginView: View {
                 Spacer()
                     .frame(height: 100)
                 
+                LabelledDivider(label: "or")
+                
                 NavigationLink("Click here to Sign Up", destination: SignUpView())
                 
             }

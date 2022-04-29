@@ -31,6 +31,8 @@ struct ProductDetailView: View {
                             .aspectRatio(contentMode: .fit)  // to fit image on screen
                             .offset(y: -50)
                         
+                        Divider()
+                        
                         VStack(alignment: .leading) {
                             Text(product.title)
                                 .font(.title)
