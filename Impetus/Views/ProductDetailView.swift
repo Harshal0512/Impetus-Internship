@@ -130,32 +130,5 @@ struct ProductDetailView: View {
                 }
             }
         }
-//        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-//            .onEnded({ value in
-//                if value.translation.width < 0 {
-//                    updatedVal = product.id + 1
-//                    shouldChangeView = true
-//                    presentationMode.wrappedValue.dismiss()
-//                    ProductDetailView(product: products[product.id + 1], productDeleted: self.$productDeleted)
-//                }
-//
-//                if value.translation.width > 0 {
-//                    right
-//                    Print("Right")
-//                    ProductDetail(product: products[product.id-1])
-//                    addProduct(titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-//                    updateProduct(prodIdParam: 7, titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-//                    deleteProduct(prodIdParam: 7)
-//                }
-//                if value.translation.height < 0 {
-//                    // up
-//                    Print("Up")
-//                }
-//
-//                if value.translation.height > 0 {
-//                    // down
-//                    Print("Down")
-//                }
-//            }))
     }
 }

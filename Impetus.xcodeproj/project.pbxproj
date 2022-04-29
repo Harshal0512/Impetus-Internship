@@ -23,6 +23,14 @@
 		F81FD6AD2811108100C86B6D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AB2811108100C86B6D /* Model.swift */; };
 		F81FD6AE2811108100C86B6D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AC2811108100C86B6D /* ApiService.swift */; };
 		F81FD6B3281110F400C86B6D /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F81FD6B2281110F400C86B6D /* products.json */; };
+		F8BA07D7281C0E0E003868B0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07D6281C0E0E003868B0 /* SignUpView.swift */; };
+		F8BA07D9281C0E83003868B0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07D8281C0E83003868B0 /* LoginView.swift */; };
+		F8BA07DB281C0EE8003868B0 /* DashboardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */; };
+		F8BA07DD281C0F2A003868B0 /* ListView_Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */; };
+		F8BA07DF281C0F82003868B0 /* AddProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DE281C0F82003868B0 /* AddProductButton.swift */; };
+		F8BA07E1281C0FDF003868B0 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */; };
+		F8BA07E3281C102B003868B0 /* TagLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E2281C102B003868B0 /* TagLineView.swift */; };
+		F8BA07E5281C1060003868B0 /* AppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E4281C1060003868B0 /* AppBarView.swift */; };
 		F8DA13082811144600858706 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DA13062811144600858706 /* PlayfairDisplay-Bold.ttf */; };
 		F8DA13092811144600858706 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8DA13072811144600858706 /* PlayfairDisplay-Regular.ttf */; };
 		F8DA130B28112F9500858706 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8DA130A28112F9500858706 /* GoogleService-Info.plist */; };
@@ -68,6 +76,14 @@
 		F81FD6AC2811108100C86B6D /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F81FD6B2281110F400C86B6D /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		F81FD6B62811130900C86B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8BA07D6281C0E0E003868B0 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F8BA07D8281C0E83003868B0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMainView.swift; sourceTree = "<group>"; };
+		F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView_Products.swift; sourceTree = "<group>"; };
+		F8BA07DE281C0F82003868B0 /* AddProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductButton.swift; sourceTree = "<group>"; };
+		F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		F8BA07E2281C102B003868B0 /* TagLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLineView.swift; sourceTree = "<group>"; };
+		F8BA07E4281C1060003868B0 /* AppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarView.swift; sourceTree = "<group>"; };
 		F8DA13062811144600858706 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F8DA13072811144600858706 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		F8DA130A28112F9500858706 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -172,6 +188,14 @@
 				F805847E2813BB8F00982065 /* CheckBoxView.swift */,
 				F81B53642819103B00078DB5 /* EditProductView.swift */,
 				F81B53662819982A00078DB5 /* AddProductView.swift */,
+				F8BA07D6281C0E0E003868B0 /* SignUpView.swift */,
+				F8BA07D8281C0E83003868B0 /* LoginView.swift */,
+				F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */,
+				F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */,
+				F8BA07DE281C0F82003868B0 /* AddProductButton.swift */,
+				F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */,
+				F8BA07E2281C102B003868B0 /* TagLineView.swift */,
+				F8BA07E4281C1060003868B0 /* AppBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,13 +373,21 @@
 			files = (
 				F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */,
 				F81FD6AD2811108100C86B6D /* Model.swift in Sources */,
+				F8BA07DB281C0EE8003868B0 /* DashboardMainView.swift in Sources */,
+				F8BA07DF281C0F82003868B0 /* AddProductButton.swift in Sources */,
 				F81B53652819103B00078DB5 /* EditProductView.swift in Sources */,
+				F8BA07E1281C0FDF003868B0 /* AppViewModel.swift in Sources */,
 				F81B53672819982A00078DB5 /* AddProductView.swift in Sources */,
 				F81FD67728110EE400C86B6D /* ContentView.swift in Sources */,
 				F81FD6AE2811108100C86B6D /* ApiService.swift in Sources */,
+				F8BA07D7281C0E0E003868B0 /* SignUpView.swift in Sources */,
 				F81FD67528110EE400C86B6D /* ImpetusApp.swift in Sources */,
+				F8BA07E3281C102B003868B0 /* TagLineView.swift in Sources */,
+				F8BA07D9281C0E83003868B0 /* LoginView.swift in Sources */,
+				F8BA07DD281C0F2A003868B0 /* ListView_Products.swift in Sources */,
 				F81FD6A528110FE900C86B6D /* ProductDetailView.swift in Sources */,
 				F81FD6A328110FA200C86B6D /* ProductRow.swift in Sources */,
+				F8BA07E5281C1060003868B0 /* AppBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
