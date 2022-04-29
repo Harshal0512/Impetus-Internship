@@ -9,35 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct ProductRow: View {
-    @State var checked: Bool = false
-    @State var trimVal: CGFloat = 0
     @State var prodID: Int
-    
-    @Binding var deleteMultiple: [Product]
     
     var product: Product
     
     var body: some View {
         HStack {
-            CheckBoxView(checked: $checked, trimVal: $trimVal, prodID: $prodID)
-                .onAppear() {
-                    checkBoxRefreshSelected()
-                }
-                .onTapGesture {
-                    if !self.checked {
-                        withAnimation(Animation.easeInOut(duration: 0.5)) {
-                            self.trimVal = 1
-                            self.checked.toggle()
-                        }
-                        deleteMultiple.append(product)
-                    } else {
-                        withAnimation {
-                            self.trimVal = 0
-                            self.checked.toggle()
-                        }
-                        deleteMultiple.remove(at: deleteMultiple.firstIndex(of: product)!)
-                    }
-                }
             KFImage(URL(string: product.image)!)
                 .resizable()
                 .frame(width: 50, height: 50)
@@ -47,15 +24,8 @@ struct ProductRow: View {
         }
     }
     
-    init(product: Product, deleteMultiple: Binding<[Product]>){
+    init(product: Product){
         self.product = product
-        _deleteMultiple = deleteMultiple
         _prodID = State(initialValue: product.id)
-    }
-    
-    func checkBoxRefreshSelected() -> Void {
-        if deleteMultiple.firstIndex(of: product) != nil {
-            checked = true
-        }
     }
 }

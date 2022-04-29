@@ -15,6 +15,7 @@ struct AppBarView: View {
             TagLineView()
                 .padding(.leading)
                 .padding(.bottom)
+                .frame(width: 250, height: 100)
             
             Spacer()
             

@@ -32,23 +32,21 @@ struct DashboardMainView: View {
                 }
                 .padding(.vertical, 15)
                 
-                ScrollView{
-                    AppBarView()
-                        .padding(.bottom, 15)
-                    
-                    AddProductButton(data: $data)
-                    ListView_Products(data: $data)
-                        .frame(height: 540)
-                        .onAppear(){
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                self.viewModel.authenticatedToast = false
-                            }
-                            
+                AppBarView()
+                    .padding(.bottom, 15)
+                
+                ListView_Products(data: $data)
+                    .frame(height: 600)
+                    .onAppear(){
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            self.viewModel.authenticatedToast = false
                         }
-                        .toast(isPresenting: $viewModel.authenticatedToast){
-                            AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
-                        }
-                }
+                        
+                    }
+                    .toast(isPresenting: $viewModel.authenticatedToast){
+                        AlertToast(type: .regular, title: "Login Successful", subTitle: "Welcome \(viewModel.auth.currentUser?.displayName ?? "Back!")")
+                    }
+                
                 
             }
         }

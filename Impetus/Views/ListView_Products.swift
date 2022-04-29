@@ -13,12 +13,9 @@ struct ListView_Products: View {
     
     @Binding var data: [Product]
     
-    @State var deleteMultiple: [Product] = []
-    
     @State public var productDeleted = false
-    @State var multipleProductsDeleted = false
     @State var showingConfirmation = false
-    @State var noItemSelected = false
+    @State private var showAddProductView = false
     
     var body: some View {
         NavigationView {
@@ -34,8 +31,11 @@ struct ListView_Products: View {
                                     }
                                 }
                         } label: {
-                            ProductRow(product: product, deleteMultiple: $deleteMultiple)
+                            ProductRow(product: product)
                         }
+                    }
+                    .onMove { (indexSet, index) in
+                        data.move(fromOffsets: indexSet, toOffset: index)
                     }
                     .onDelete { index in
                         index.forEach { i in
@@ -48,15 +48,17 @@ struct ListView_Products: View {
                         
                     }
                 }
-                .navigationBarHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                }
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
+                .padding(.top, 10)
+                .edgesIgnoringSafeArea(.top)
                 .toast(isPresenting: $productDeleted){
                     AlertToast(type: .error(Color.black), title: "Product Deleted", subTitle: "")
-                }
-                .toast(isPresenting: $multipleProductsDeleted){
-                    AlertToast(type: .error(Color.black), title: "Selected Products Deleted", subTitle: "")
-                }
-                .toast(isPresenting: $noItemSelected){
-                    AlertToast(type: .regular, title: "No Item Selected", subTitle: "Please select items through checkbox in order to delete them")
                 }
                 VStack { // using zstack for displaying edit button on top of content
                     Spacer()
@@ -64,45 +66,27 @@ struct ListView_Products: View {
                         Spacer()
                         ZStack{
                             Button(action: {
-                                if deleteMultiple.count < 1 {
-                                    noItemSelected = true
-                                } else {
-                                    showingConfirmation = true
-                                }
+                                showAddProductView.toggle()
                             }, label: { // delete button
-                                Label("", systemImage: "trash")
-                                    .font(.system(.largeTitle))
-                                    .frame(width: 55, height: 55)
+                                Label("Add Product", systemImage: "plus.app.fill")
+                                    .font(.system(.headline))
                                     .foregroundColor(Color.white)
-                                    .padding(.bottom, 7)
-                                    .padding(.leading, 7)
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 10)
                             })
-                            
+                            .sheet(isPresented: $showAddProductView) {
+                                showAddProductView = false
+                                presentationMode.wrappedValue.dismiss()
+                            } content: {
+                                AddProductView(data: $data)
+                            }
                             .background(Color.blue)
-                            .cornerRadius(100)
+                            .cornerRadius(13)
                             .padding()
                             .shadow(color: Color.black.opacity(0.3),
                                     radius: 3,
                                     x: 3,
                                     y: 3)
-                            .confirmationDialog("Delete Multiple Items", isPresented: $showingConfirmation) {
-                                Button("Delete", role: .destructive) {
-                                    DispatchQueue.main.async {
-                                        for i in deleteMultiple.indices {
-                                            let index = data.firstIndex(of: deleteMultiple[i])
-                                            if  deleteProduct(prodIdParam: data[index!].id) {
-                                                data.remove(at: index!)
-                                            }
-                                        }
-                                        deleteMultiple.removeAll()
-                                    }
-                                    multipleProductsDeleted = true
-                                }
-                                
-                                Button("Cancel", role: .cancel) { }
-                            } message: {
-                                Text("Are you sure you want to delete the selected items? This action cannot be undone.")
-                            }
                         }
                     }
                 }
