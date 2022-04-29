@@ -102,12 +102,6 @@ struct AppBarView: View {
     
     var body: some View {
         HStack{
-            //            Button(action: {}) {
-            //                Image("menu")
-            //                    .padding()
-            //                    .background(Color(.white))
-            //                    .cornerRadius(10.0)
-            //            }
             TagLineView()
                 .padding(.leading)
                 .padding(.bottom)
@@ -135,23 +129,6 @@ struct TagLineView: View {
             .foregroundColor(Color("Primary"))
     }
 }
-
-//struct SearchView: View {
-//    @State private var search: String = ""
-//    var body: some View {
-//        HStack {
-//            HStack {
-//                Image("Search")
-//                    .padding(.trailing, 8)
-//                TextField("Search for Products", text: $search)
-//            }
-//            .padding()
-//            .background(Color.white)
-//            .cornerRadius(10.0)
-//            .padding(.horizontal)
-//        }
-//    }
-//}
 
 struct AddButton: View {
     @State private var showAddProductView = false
@@ -274,6 +251,7 @@ struct ListView_Products: View {
                                                 data.remove(at: index!)
                                             }
                                         }
+                                        deleteMultiple.removeAll()
                                     }
                                     multipleProductsDeleted = true
                                 }

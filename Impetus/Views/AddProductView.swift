@@ -104,14 +104,14 @@ struct AddProductView: View {
                     }
                     
                     Button(action: {
-                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty, Double(productPrice) != nil else {
+                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty, Double(productPrice) != nil, Double(productPrice)! > 0 else {
                             alertWrongInfo = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
                             }
                             return
                         }
-
+                        
                         let price = Double(productPrice)
                         
                         let prod = Product(id: -1, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)

@@ -40,7 +40,7 @@ struct ProductRow: View {
                 }
             KFImage(URL(string: product.image)!)
                 .resizable()
-            .frame(width: 50, height: 50)
+                .frame(width: 50, height: 50)
             Text(product.title)
                 .font(Font.system(size:15, design: .default))
             Spacer()
@@ -59,15 +59,3 @@ struct ProductRow: View {
         }
     }
 }
-
-
-
-//struct ProductRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ProductRow(product: products[0])
-//            ProductRow(product: products[1])
-//        }
-//        .previewLayout(.fixed(width: 300, height: 70))
-//    }
-//}

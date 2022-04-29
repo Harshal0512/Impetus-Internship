@@ -133,7 +133,7 @@ struct EditProductView: View {
                     }
                     
                     Button(action: {
-                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty, Double(productPrice) != nil else {
+                        guard !productName.isEmpty, !productPrice.isEmpty, !productCategory.isEmpty, !productImage.isEmpty, !productDescription.isEmpty, Double(productPrice) != nil, Double(productPrice)! > 0 else {
                             alertWrongInfo = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
@@ -148,12 +148,12 @@ struct EditProductView: View {
                         
                         if updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
                             productUpdated = true
-                        
+                            
                             let index = data.firstIndex(of: oldProduct)
                             
                             data.remove(at: index!)
                             let newProduct = Product(id: id!, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
-
+                            
                             data.insert(newProduct, at: index!)
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {

@@ -15,9 +15,11 @@ func getAllProducts() -> [Product] {
             //  guard let url = URL(string: "https://fakestoreapi.com/products?limit=5")
             //  guard let url = URL(string: "https://fakestoreapi.com/products?sort=desc")
     else{
-        fatalError("Invalid URL")
+        fatalError("Invalid URL")   // will throw error if URL cannot be created
         
     }
+    
+    // move forward if URL is created
     
     var tasks: [Product] = []
     let task = URLSession.shared.dataTask(with: url)
@@ -49,7 +51,7 @@ func addProduct(titleParam: String,
                 categoryParam: String
 ) -> Bool {
     guard let url = URL(string: "https://fakestoreapi.com/products/") else {
-        print("Error: cannot create URL")
+        print("Error: cannot create URL")  // will throw error if URL cannot be created
         return false
     }
     
@@ -75,7 +77,7 @@ func addProduct(titleParam: String,
             return
         }
         guard let data = data else {
-            print("Error: Did not receive data")
+            print("Error: Did not receive data")  // will throw error if no data received
             return
         }
         guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode
@@ -117,7 +119,7 @@ func updateProduct(prodIdParam: Int,
 ) -> Bool {
     let urlString = "https://fakestoreapi.com/products/\(prodIdParam)"
     guard let url = URL(string: urlString) else {
-        print("Error: cannot create URL")
+        print("Error: cannot create URL")  // will throw error if URL cannot be createds
         return false
     }
     
@@ -177,7 +179,7 @@ func updateProduct(prodIdParam: Int,
 func deleteProduct(prodIdParam: Int) -> Bool {
     let urlString = "https://fakestoreapi.com/products/\(prodIdParam)"
     guard let url = URL(string: urlString) else {
-        print("Error: cannot create URL")
+        print("Error: cannot create URL")  // will throw error if URL cannot be createds
         return false
     }
     

@@ -23,19 +23,19 @@ struct ProductDetailView: View {
         VStack {
             ZStack {  // for background image
                 Color("Bg")
-                    .edgesIgnoringSafeArea(.all)  // stretching background to the 
+                    .edgesIgnoringSafeArea(.all)  // stretching background to the
                 ScrollView{
                     VStack {
                         KFImage(URL(string: product.image)!)  // Kingfisher library for asynchronously caching images
                             .resizable()
                             .aspectRatio(contentMode: .fit)  // to fit image on screen
                             .offset(y: -50)
-                    
+                        
                         VStack(alignment: .leading) {
                             Text(product.title)
                                 .font(.title)
                                 .fontWeight(.bold)
-                        
+                            
                             HStack {
                                 Text("Category: \(product.category.capitalized)")
                                     .opacity(0.5)
@@ -52,7 +52,7 @@ struct ProductDetailView: View {
                                 .fontWeight(.medium)
                                 .padding(.top, 8)
                                 .padding(.bottom,4)
-                        
+                            
                             Text(product.description)
                                 .lineSpacing(8.0)
                                 .opacity(0.6)
@@ -95,7 +95,7 @@ struct ProductDetailView: View {
                                         }
                                     }
                                 }
-
+                                
                                 Button("Cancel", role: .cancel) { }
                             } message: {
                                 Text("Are you sure you want to delete this item? This action cannot be undone.")
@@ -130,32 +130,32 @@ struct ProductDetailView: View {
                 }
             }
         }
-        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
-            .onEnded({ value in
-                if value.translation.width < 0 {
+//        .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local)
+//            .onEnded({ value in
+//                if value.translation.width < 0 {
 //                    updatedVal = product.id + 1
 //                    shouldChangeView = true
-                    presentationMode.wrappedValue.dismiss()
-                    //ProductDetailView(product: products[product.id + 1], productDeleted: self.$productDeleted)
-                }
-
-                if value.translation.width > 0 {
-                    // right
-                    //Print("Right")
-                    //ProductDetail(product: products[product.id-1])
-                    //addProduct(titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-                    //updateProduct(prodIdParam: 7, titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
-                    //deleteProduct(prodIdParam: 7)
-                }
-//                                if value.translation.height < 0 {
-//                                    // up
-//                                    Print("Up")
-//                                }
+//                    presentationMode.wrappedValue.dismiss()
+//                    ProductDetailView(product: products[product.id + 1], productDeleted: self.$productDeleted)
+//                }
 //
-//                                if value.translation.height > 0 {
-//                                    // down
-//                                    Print("Down")
-//                                }
-            }))
+//                if value.translation.width > 0 {
+//                    right
+//                    Print("Right")
+//                    ProductDetail(product: products[product.id-1])
+//                    addProduct(titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
+//                    updateProduct(prodIdParam: 7, titleParam: "test product", priceParam: 13.5, descriptionParam: "Lorem ipsum", imageParam: "https://i.pravatar.cc", categoryParam: "electronic")
+//                    deleteProduct(prodIdParam: 7)
+//                }
+//                if value.translation.height < 0 {
+//                    // up
+//                    Print("Up")
+//                }
+//
+//                if value.translation.height > 0 {
+//                    // down
+//                    Print("Down")
+//                }
+//            }))
     }
 }
