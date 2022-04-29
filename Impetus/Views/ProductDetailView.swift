@@ -121,7 +121,6 @@ struct ProductDetailView: View {
                                     y: 3)
                             .sheet(isPresented: $isEditing) {
                                 isEditing = false
-                                presentationMode.wrappedValue.dismiss()
                             } content: {
                                 EditProductView(product: product, data: $data)
                             }

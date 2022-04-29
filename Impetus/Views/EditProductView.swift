@@ -19,7 +19,7 @@ struct EditProductView: View {
     @State var productImage = ""
     
     @State private var alertWrongInfo = false
-    @State private var productUpdated = false
+    @State private var isProductUpdated = false
     
     @Binding var data: [Product]
     
@@ -147,7 +147,7 @@ struct EditProductView: View {
                         let price = Double(productPrice)
                         
                         if updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
-                            productUpdated = true
+                            isProductUpdated = true
                             
                             let index = data.firstIndex(of: oldProduct)
                             
@@ -158,7 +158,7 @@ struct EditProductView: View {
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                                 alertWrongInfo = false
-                                productUpdated = false
+                                isProductUpdated = false
                                 presentationMode.wrappedValue.dismiss()
                             }
                         }
@@ -178,7 +178,7 @@ struct EditProductView: View {
             .toast(isPresenting: $alertWrongInfo){
                 AlertToast(type: .error(Color.black), title: "Incomplete", subTitle: "Please fill all Fields")
             }
-            .toast(isPresenting: $productUpdated){
+            .toast(isPresenting: $isProductUpdated){
                 AlertToast(type: .complete(Color.green), title: "Product Info Updated", subTitle: "")
             }
         }
