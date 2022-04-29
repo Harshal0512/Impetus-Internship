@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F805847E2813BB8F00982065 /* CheckBoxView.swift */; };
 		F81B53652819103B00078DB5 /* EditProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53642819103B00078DB5 /* EditProductView.swift */; };
 		F81B53672819982A00078DB5 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81B53662819982A00078DB5 /* AddProductView.swift */; };
 		F81B5369281A5C0100078DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81B5368281A5C0100078DB5 /* Assets.xcassets */; };
@@ -28,7 +27,6 @@
 		F8BA07D9281C0E83003868B0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07D8281C0E83003868B0 /* LoginView.swift */; };
 		F8BA07DB281C0EE8003868B0 /* DashboardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */; };
 		F8BA07DD281C0F2A003868B0 /* ListView_Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */; };
-		F8BA07DF281C0F82003868B0 /* AddProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07DE281C0F82003868B0 /* AddProductButton.swift */; };
 		F8BA07E1281C0FDF003868B0 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */; };
 		F8BA07E3281C102B003868B0 /* TagLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E2281C102B003868B0 /* TagLineView.swift */; };
 		F8BA07E5281C1060003868B0 /* AppBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07E4281C1060003868B0 /* AppBarView.swift */; };
@@ -58,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F805847E2813BB8F00982065 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		F81B53642819103B00078DB5 /* EditProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductView.swift; sourceTree = "<group>"; };
 		F81B53662819982A00078DB5 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		F81B5368281A5C0100078DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +79,6 @@
 		F8BA07D8281C0E83003868B0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMainView.swift; sourceTree = "<group>"; };
 		F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView_Products.swift; sourceTree = "<group>"; };
-		F8BA07DE281C0F82003868B0 /* AddProductButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductButton.swift; sourceTree = "<group>"; };
 		F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F8BA07E2281C102B003868B0 /* TagLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLineView.swift; sourceTree = "<group>"; };
 		F8BA07E4281C1060003868B0 /* AppBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBarView.swift; sourceTree = "<group>"; };
@@ -187,14 +183,12 @@
 				F81FD67628110EE400C86B6D /* ContentView.swift */,
 				F81FD6A228110FA200C86B6D /* ProductRow.swift */,
 				F81FD6A428110FE900C86B6D /* ProductDetailView.swift */,
-				F805847E2813BB8F00982065 /* CheckBoxView.swift */,
 				F81B53642819103B00078DB5 /* EditProductView.swift */,
 				F81B53662819982A00078DB5 /* AddProductView.swift */,
 				F8BA07D6281C0E0E003868B0 /* SignUpView.swift */,
 				F8BA07D8281C0E83003868B0 /* LoginView.swift */,
 				F8BA07DA281C0EE8003868B0 /* DashboardMainView.swift */,
 				F8BA07DC281C0F2A003868B0 /* ListView_Products.swift */,
-				F8BA07DE281C0F82003868B0 /* AddProductButton.swift */,
 				F8BA07E0281C0FDF003868B0 /* AppViewModel.swift */,
 				F8BA07E2281C102B003868B0 /* TagLineView.swift */,
 				F8BA07E4281C1060003868B0 /* AppBarView.swift */,
@@ -374,10 +368,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F805847F2813BB8F00982065 /* CheckBoxView.swift in Sources */,
 				F81FD6AD2811108100C86B6D /* Model.swift in Sources */,
 				F8BA07DB281C0EE8003868B0 /* DashboardMainView.swift in Sources */,
-				F8BA07DF281C0F82003868B0 /* AddProductButton.swift in Sources */,
 				F81B53652819103B00078DB5 /* EditProductView.swift in Sources */,
 				F8BA07E1281C0FDF003868B0 /* AppViewModel.swift in Sources */,
 				F81B53672819982A00078DB5 /* AddProductView.swift in Sources */,
