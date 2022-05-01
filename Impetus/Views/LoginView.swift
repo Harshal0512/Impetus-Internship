@@ -7,10 +7,20 @@
 
 import SwiftUI
 import AlertToast
+import LoadingButton
 
 struct LoginView: View {
     @State var email = ""
     @State var password = ""
+    @State var isLoading: Bool = false
+    
+    var style = LoadingButtonStyle(width: 200,
+                                  height: 50,
+                                  cornerRadius: 8,
+                                  backgroundColor: .blue,
+                                  loadingColor: Color.blue.opacity(0.5),
+                                  strokeWidth: 5,
+                                  strokeColor: .white)
     
     @EnvironmentObject var viewModel: AppViewModel
     
@@ -31,23 +41,26 @@ struct LoginView: View {
                     .background(Color(.secondarySystemBackground))
                     .padding(.bottom, 15)
                 
-                Button(action: {
+                LoadingButton(action: {
                     guard !email.isEmpty, !password.isEmpty else {
+                        DispatchQueue.main.async {
+                            isLoading = false
+                        }
                         return
                     }
                     
                     viewModel.signIn(email: email, password: password)
-                }, label: { Text("Sign In")
+                }, isLoading: $isLoading, style: style) {
+                    Text("Sign In")
                         .frame(width: 200, height: 50)
                         .background(Color.blue)
                         .cornerRadius(8)
                         .foregroundColor(Color.white)
                         .font(.system(size: 16, weight: .bold, design: .default))
-                })
+                }
                 .toast(isPresenting: $viewModel.wrongCredentialsToast){
                     AlertToast(type: .error(Color.black), title: "Try Again", subTitle: "Wrong Email/Password")
                 }
-                
                 
                 Spacer()
                     .frame(height: 100)

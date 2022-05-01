@@ -7,11 +7,21 @@
 
 import SwiftUI
 import AlertToast
+import LoadingButton
 
 struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State private var alertWrongInfo = false
+    @State var isLoading: Bool = false
+    
+    var style = LoadingButtonStyle(width: 200,
+                                  height: 50,
+                                  cornerRadius: 8,
+                                  backgroundColor: .green,
+                                  loadingColor: Color.green.opacity(0.5),
+                                  strokeWidth: 5,
+                                  strokeColor: .white)
     
     @EnvironmentObject var viewModel: AppViewModel
     
@@ -32,23 +42,33 @@ struct SignUpView: View {
                     .background(Color(.secondarySystemBackground))
                     .padding(.bottom, 15)
                 
-                Button(action: {
+                LoadingButton(action: {
                     guard !email.isEmpty, !password.isEmpty else {
+                        DispatchQueue.main.async {
+                            alertWrongInfo = true
+                            isLoading = false
+                        }
+                        return
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                         alertWrongInfo = true
+                        isLoading = false
                         return
                     }
                     
                     viewModel.signUp(email: email, password: password)
                     
-                }, label: { Text("Sign Up")
+                }, isLoading: $isLoading, style: style) {
+                    Text("Sign Up")
                         .frame(width: 200, height: 50)
                         .background(Color.green)
                         .cornerRadius(8)
                         .foregroundColor(Color.white)
                         .font(.system(size: 16, weight: .bold, design: .default))
-                })
+                }
                 .toast(isPresenting: $alertWrongInfo){
-                    AlertToast(type: .error(Color.black), title: "Incomplete", subTitle: "Please fill all Fields")
+                    AlertToast(type: .error(Color.black), title: "Invalid", subTitle: "Fill all Details Correctly")
                 }
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

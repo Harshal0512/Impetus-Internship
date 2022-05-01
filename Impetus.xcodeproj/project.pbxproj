@@ -22,6 +22,8 @@
 		F81FD6AD2811108100C86B6D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AB2811108100C86B6D /* Model.swift */; };
 		F81FD6AE2811108100C86B6D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FD6AC2811108100C86B6D /* ApiService.swift */; };
 		F81FD6B3281110F400C86B6D /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F81FD6B2281110F400C86B6D /* products.json */; };
+		F82F21E4281E6AF800B35045 /* LoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = F82F21E3281E6AF800B35045 /* LoadingButton */; };
+		F82F21E6281EEF5800B35045 /* LoginView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82F21E5281EEF5800B35045 /* LoginView_UITests.swift */; };
 		F85D7853281C4D8700D2B524 /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85D7852281C4D8700D2B524 /* LabelledDivider.swift */; };
 		F8BA07D7281C0E0E003868B0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07D6281C0E0E003868B0 /* SignUpView.swift */; };
 		F8BA07D9281C0E83003868B0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BA07D8281C0E83003868B0 /* LoginView.swift */; };
@@ -74,6 +76,7 @@
 		F81FD6AC2811108100C86B6D /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F81FD6B2281110F400C86B6D /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		F81FD6B62811130900C86B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F82F21E5281EEF5800B35045 /* LoginView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView_UITests.swift; sourceTree = "<group>"; };
 		F85D7852281C4D8700D2B524 /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
 		F8BA07D6281C0E0E003868B0 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F8BA07D8281C0E83003868B0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 				F8DA13102811313300858706 /* FirebaseAuth in Frameworks */,
 				F8DA13182811555700858706 /* AlertToast in Frameworks */,
 				F81FD6A028110F6400C86B6D /* Kingfisher in Frameworks */,
+				F82F21E4281E6AF800B35045 /* LoadingButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +177,7 @@
 			children = (
 				F81FD68F28110EE500C86B6D /* ImpetusUITests.swift */,
 				F81FD69128110EE500C86B6D /* ImpetusUITestsLaunchTests.swift */,
+				F82F21E5281EEF5800B35045 /* LoginView_UITests.swift */,
 			);
 			path = ImpetusUITests;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				F8DA130D2811313300858706 /* FirebaseAnalytics */,
 				F8DA130F2811313300858706 /* FirebaseAuth */,
 				F8DA13172811555700858706 /* AlertToast */,
+				F82F21E3281E6AF800B35045 /* LoadingButton */,
 			);
 			productName = Impetus;
 			productReference = F81FD67128110EE400C86B6D /* Impetus.app */;
@@ -321,6 +327,7 @@
 				F81FD69E28110F6400C86B6D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F8DA130C2811313300858706 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F8DA13162811555700858706 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				F82F21E2281E6AF800B35045 /* XCRemoteSwiftPackageReference "LoadingButton" */,
 			);
 			productRefGroup = F81FD67228110EE400C86B6D /* Products */;
 			projectDirPath = "";
@@ -401,6 +408,7 @@
 			files = (
 				F81FD69228110EE500C86B6D /* ImpetusUITestsLaunchTests.swift in Sources */,
 				F81FD69028110EE500C86B6D /* ImpetusUITests.swift in Sources */,
+				F82F21E6281EEF5800B35045 /* LoginView_UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +726,14 @@
 				kind = branch;
 			};
 		};
+		F82F21E2281E6AF800B35045 /* XCRemoteSwiftPackageReference "LoadingButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Changemin/LoadingButton";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		F8DA130C2811313300858706 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -741,6 +757,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F81FD69E28110F6400C86B6D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F82F21E3281E6AF800B35045 /* LoadingButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F82F21E2281E6AF800B35045 /* XCRemoteSwiftPackageReference "LoadingButton" */;
+			productName = LoadingButton;
 		};
 		F8DA130D2811313300858706 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

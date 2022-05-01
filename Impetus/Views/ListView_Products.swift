@@ -27,7 +27,9 @@ struct ListView_Products: View {
                                 .onDisappear() {
                                     if productDeleted {
                                         productDeleted = false
-                                        data.remove(at: data.firstIndex(of: product)!)
+                                        withAnimation {
+                                            data.remove(at: data.firstIndex(of: product)!)
+                                        }
                                     }
                                 }
                         } label: {
