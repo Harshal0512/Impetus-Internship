@@ -146,20 +146,25 @@ struct EditProductView: View {
                         let id = Int(productId)
                         let price = Double(productPrice)
                         
-                        if updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
-                            isProductUpdated = true
+                        updateProduct(prodIdParam: id!, titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) { (isSuccess) in
                             
-                            let index = data.firstIndex(of: oldProduct)
-                            
-                            data.remove(at: index!)
-                            let newProduct = Product(id: id!, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
-                            
-                            data.insert(newProduct, at: index!)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                                alertWrongInfo = false
-                                isProductUpdated = false
-                                presentationMode.wrappedValue.dismiss()
+                            if isSuccess {
+                                isProductUpdated = true
+                                
+                                let index = data.firstIndex(of: oldProduct)
+                                
+                                data.remove(at: index!)
+                                let newProduct = Product(id: id!, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
+                                
+                                data.insert(newProduct, at: index!)
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                    alertWrongInfo = false
+                                    isProductUpdated = false
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                            } else {
+                                return
                             }
                         }
                         

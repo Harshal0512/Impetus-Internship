@@ -43,7 +43,7 @@ struct SignUpView: View {
                     .padding(.bottom, 15)
                 
                 LoadingButton(action: {
-                    guard !email.isEmpty, !password.isEmpty else {
+                    guard !email.isEmpty, !password.isEmpty, isValidEmail(email) else {
                         DispatchQueue.main.async {
                             alertWrongInfo = true
                             isLoading = false
@@ -57,7 +57,14 @@ struct SignUpView: View {
                         return
                     }
                     
-                    viewModel.signUp(email: email, password: password)
+                    viewModel.signUp(email: email, password: password) {
+                        (isSuccess) in
+                        if !isSuccess {
+                            DispatchQueue.main.async {
+                                isLoading = false
+                            }
+                        }
+                    }
                     
                 }, isLoading: $isLoading, style: style) {
                     Text("Sign Up")
@@ -73,6 +80,7 @@ struct SignUpView: View {
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         alertWrongInfo = false
+                        isLoading = false
                     }
                 }
                 

@@ -116,14 +116,19 @@ struct AddProductView: View {
                         
                         let prod = Product(id: -1, title: productName, price: price!, description: productDescription, category: productCategory, image: productImage)
                         
-                        if addProduct(titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) {
-                            productAdded = true
-                            data.append(prod)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                                alertWrongInfo = false
-                                productAdded = false
-                                presentationMode.wrappedValue.dismiss()
+                        addProduct(titleParam: productName, priceParam: price!, descriptionParam: productDescription, imageParam: productImage, categoryParam: productCategory) { (isSuccess) in
+                            if isSuccess {
+                                productAdded = true
+                                data.append(prod)
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                    alertWrongInfo = false
+                                    productAdded = false
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                            }
+                            else {
+                                return
                             }
                         }
                         

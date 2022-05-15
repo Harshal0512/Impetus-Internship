@@ -48,11 +48,13 @@ func addProduct(titleParam: String,
                 priceParam: Double,
                 descriptionParam: String,
                 imageParam: String,
-                categoryParam: String
-) -> Bool {
+                categoryParam: String,
+                completionHandler: @escaping (Bool) -> ()
+) {
     guard let url = URL(string: "https://fakestoreapi.com/products/") else {
         print("Error: cannot create URL")  // will throw error if URL cannot be created
-        return false
+        completionHandler(false)
+        return
     }
     
     // Add data to the model
@@ -61,7 +63,8 @@ func addProduct(titleParam: String,
     // Convert model to JSON data
     guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
         print("Error: Trying to convert model to JSON data")
-        return false
+        completionHandler(false)
+        return
     }
     
     // Create the url request
@@ -74,38 +77,44 @@ func addProduct(titleParam: String,
         guard error == nil else {
             print("Error: error calling POST")
             print(error!)
+            completionHandler(false)
             return
         }
         guard let data = data else {
             print("Error: Did not receive data")  // will throw error if no data received
+            completionHandler(false)
             return
         }
         guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode
         else {
             print("Error: HTTP request failed")
+            completionHandler(false)
             return
         }
         do {
             guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
                 print("Error: Cannot convert data to JSON object")
+                completionHandler(false)
                 return
             }
             guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
                 print("Error: Cannot convert JSON object to Pretty JSON data")
+                completionHandler(false)
                 return
             }
             guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
                 print("Error: Couldn't print JSON in String")
+                completionHandler(false)
                 return
             }
             
             print(prettyPrintedJson)
+            completionHandler(true)
         } catch {
             print("Error: Trying to convert JSON data to string")
-            return
+            completionHandler(false)
         }
     }.resume()
-    return true
 }
 
 
@@ -115,12 +124,14 @@ func updateProduct(prodIdParam: Int,
                    priceParam: Double,
                    descriptionParam: String,
                    imageParam: String,
-                   categoryParam: String
-) -> Bool {
+                   categoryParam: String,
+                   completionHandler: @escaping (Bool) -> ()
+) {
     let urlString = "https://fakestoreapi.com/products/\(prodIdParam)"
     guard let url = URL(string: urlString) else {
         print("Error: cannot create URL")  // will throw error if URL cannot be createds
-        return false
+        completionHandler(false)
+        return
     }
     
     // Add data to the model
@@ -129,7 +140,8 @@ func updateProduct(prodIdParam: Int,
     // Convert model to JSON data
     guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
         print("Error: Trying to convert model to JSON data")
-        return false
+        completionHandler(false)
+        return
     }
     
     // Create the request
@@ -141,37 +153,43 @@ func updateProduct(prodIdParam: Int,
         guard error == nil else {
             print("Error: error calling PUT")
             print(error!)
+            completionHandler(false)
             return
         }
         guard let data = data else {
             print("Error: Did not receive data")
+            completionHandler(false)
             return
         }
         guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
             print("Error: HTTP request failed")
+            completionHandler(false)
             return
         }
         do {
             guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
                 print("Error: Cannot convert data to JSON object")
+                completionHandler(false)
                 return
             }
             guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
                 print("Error: Cannot convert JSON object to Pretty JSON data")
+                completionHandler(false)
                 return
             }
             guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
                 print("Error: Could print JSON in String")
+                completionHandler(false)
                 return
             }
             
             print(prettyPrintedJson)
+            completionHandler(true)
         } catch {
             print("Error: Trying to convert JSON data to string")
-            return
+            completionHandler(false)
         }
     }.resume()
-    return true
 }
 
 

@@ -42,14 +42,21 @@ struct LoginView: View {
                     .padding(.bottom, 15)
                 
                 LoadingButton(action: {
-                    guard !email.isEmpty, !password.isEmpty else {
+                    guard !email.isEmpty, !password.isEmpty, isValidEmail(email) else {
                         DispatchQueue.main.async {
                             isLoading = false
                         }
                         return
                     }
                     
-                    viewModel.signIn(email: email, password: password)
+                    viewModel.signIn(email: email, password: password) {
+                        (isSuccess) in
+                        if !isSuccess {
+                            DispatchQueue.main.async {
+                                isLoading = false
+                            }
+                        }
+                    }
                 }, isLoading: $isLoading, style: style) {
                     Text("Sign In")
                         .frame(width: 200, height: 50)
@@ -74,4 +81,11 @@ struct LoginView: View {
         .navigationTitle("Sign In")
         .padding()
     }
+}
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
 }

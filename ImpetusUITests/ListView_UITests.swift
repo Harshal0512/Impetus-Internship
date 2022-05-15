@@ -1,8 +1,8 @@
 //
-//  LoginView_UITests.swift
+//  ListView_UITests.swift
 //  ImpetusUITests
 //
-//  Created by Harshal Kulkarni on 01/05/22.
+//  Created by Harshal Kulkarni on 06/05/22.
 //
 
 import XCTest
@@ -15,7 +15,7 @@ import XCTest
 
 
 
-class LoginView_UITests: XCTestCase {
+class ListView_UITests: XCTestCase {
     let app = XCUIApplication()
 
     override func setUpWithError() throws {
@@ -35,46 +35,29 @@ class LoginView_UITests: XCTestCase {
         }
     }
     
-    func test_LoginView_Appearance() {
-        if app.buttons["Logout"].exists {
-            app.buttons["Logout"].tap()
-        }
-        
-        let loginNavBarTitle = app.staticTexts["Sign In"]
-        XCTAssert(loginNavBarTitle.waitForExistence(timeout: 0.5))
-        let email = app.textFields["Email Address"]
-        XCTAssert(email.exists)
-         
-        let password = app.secureTextFields["Password"]
-        XCTAssert(password.exists)
-        
-        let login = app.buttons["Sign In"]
-        XCTAssert(login.exists)
-        XCTAssertEqual(login.label, "Sign In")
-        
-        XCTAssertTrue(app.buttons["Click here to Sign Up"].exists)
-    }
-    
-    func test_LoginView_signInButton_shouldSignIn() {
-        if app.buttons["Logout"].exists {
-            app.buttons["Logout"].tap()
-        }
-        
+    func login() {
         let email = app.textFields["Email Address"]
         let login = app.buttons["Sign In"]
         
         email.tap()
         email.typeText("harshal@gmail.com")
-            
-        XCTAssertNotEqual(email.value as! String, "")
-        XCTAssertEqual(email.value as! String, "harshal@gmail.com")
         
         app.secureTextFields.element.tap()
         app.secureTextFields.element.typeText("password")
-
-        XCTAssertNotEqual(app.secureTextFields.element.value as! String, "")
         
         login.tap()
         XCTAssertFalse(login.waitForExistence(timeout: 5))
+    }
+    
+    func test_ListView_Appearance() {
+        if !app.buttons["Logout"].exists {
+            login()
+        }
+        
+        XCTAssertTrue(app.buttons["Logout"].exists)
+        XCTAssertTrue(app.buttons["Edit"].exists)
+        XCTAssertTrue(app.buttons["Add Product"].exists)
+        XCTAssertTrue(app.navigationBars.element.exists)
+        XCTAssertTrue(app.tables.cells.element.exists)
     }
 }
