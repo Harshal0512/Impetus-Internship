@@ -562,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Impetus/Preview Content\"";
-				DEVELOPMENT_TEAM = 7ZK5WQMKAL;
+				DEVELOPMENT_TEAM = 7H68AKPVF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Impetus/Info.plist;
@@ -594,7 +594,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Impetus/Preview Content\"";
-				DEVELOPMENT_TEAM = 7ZK5WQMKAL;
+				DEVELOPMENT_TEAM = 7H68AKPVF2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Impetus/Info.plist;
@@ -736,8 +736,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
 			};
 		};
 		F82F21E2281E6AF800B35045 /* XCRemoteSwiftPackageReference "LoadingButton" */ = {
